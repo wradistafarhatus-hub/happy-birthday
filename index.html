@@ -3,72 +3,125 @@
 <head>
   <meta charset="UTF-8">
   <title>Happy Birthday</title>
+
   <style>
+    html, body {
+      height: auto;
+    }
+
     body {
       margin: 0;
       padding: 0;
       background: #1e90ff;
       font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      flex-direction: column;
+      text-align: center;
+      color: white;
+      min-height: 100vh;
+      overflow-y: auto;
     }
 
-    .envelope {
-      width: 200px;
-      cursor: pointer;
-      transition: transform 0.3s;
-    }
-
-    .envelope:hover {
-      transform: scale(1.05);
-    }
-
-    .message-box {
-      display: none;
+    h1 {
       margin-top: 20px;
-      background: white;
-      padding: 20px;
-      border-radius: 15px;
-      max-width: 500px;
-      text-align: left;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
     }
 
-    .title {
-      font-weight: bold;
-      margin-bottom: 10px;
+    /* VIDEO / MUSIK MP4 */
+    video.music {
+      display: none;
+    }
+
+    /* VIDEO UTAMA */
+    video.main {
+      width: 300px;
+      margin-top: 15px;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    }
+
+    /* FOTO */
+    .photos {
+      margin-top: 20px;
+    }
+
+    .photos img {
+      width: 140px;
+      margin: 8px;
+      border-radius: 10px;
+      border: 4px solid white;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.25);
+      background: white;
+      padding: 4px;
+    }
+
+    /* GAMBAR TAMBAHAN */
+    .extra {
+      margin-top: 20px;
+    }
+
+    .extra img {
+      width: 200px;
+      border-radius: 12px;
+      border: 3px solid white;
+    }
+
+    /* KOTAK PESAN */
+    .card {
+      background: black;
+      color: white;
+      max-width: 700px;
+      margin: 30px auto;
+      padding: 25px;
+      border-radius: 15px;
+      text-align: left;
+      line-height: 1.7;
+      white-space: pre-line;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.4);
     }
   </style>
 </head>
+
 <body>
 
-  <!-- Gambar amplop -->
-  <img src="amplop.png" class="envelope" onclick="openLetter()" alt="amplop">
+  <h1>💙 Happy Birthday 💙</h1>
 
-  <!-- Isi pesan -->
-  <div class="message-box" id="letter">
-    <div class="title">💌 Untuk kamu</div>
+  <!-- 🎵 MUSIK MP4 (HIDDEN) -->
+  <video class="music" autoplay loop>
+    <source src="1f813fc63cd925e339dc1af3d1218f3e.mp4" type="video/mp4">
+  </video>
 
-    Hai demittt, distaa cuma mau bilang makasih ya udah jadi bagian dari hari-harinya distaa. distaa nggaaa selalu bisa nunjukin secara langsung, tapi demitt tuh berarti banget buat distaa. Dari cara demitt peduli, cara demitt selalu ada, sampai hal-hal kecil yang kadang demitt sendiri nggak sadar, itu bikin distaa ngerasa nyaman banget sama demitt.<br><br>
+  <!-- 🎥 VIDEO UTAMA (JIKA KAMU MAU TAMPILKAN, kalau tidak hapus ini) -->
+  <!-- kalau file itu memang musik saja, ini boleh dihapus -->
+  <video class="main" controls>
+    <source src="1f813fc63cd925e339dc1af3d1218f3e.mp4" type="video/mp4">
+  </video>
 
-    distaa harap demitt selalu sehat, selalu dimudahkan semua urusannya, dan nggaaa terlalu capek sama dunia yang kadang emang suka bikin pusing yakann demitt. Kalau lagi capek, jangan dipaksa kuat terus ya, istirahat juga nggak apa-apa. distaa di sini bakal selalu dukung demitt, meskipun nggaaa selalu keliatan, tapi distaa beneran ada buat demitt.<br><br>
-
-    distaa juga pengen demitt tau, dista seneng banget bisa kenal sama demit, bisa punya demitt di hidup dista sekarang. Semoga apa pun yang demitt perjuangin bisa berjalan lancar dan hasilnya sesuai sama yang demitt harapin. Jangan lupa bahagia ya, jangan terlalu keras sama diri sendiri.<br><br>
-
-    Dan kalau suatu saat demitt ngerasa dunia lagi nggaaa enak, inget aja kalau ada distaa yang selalu doain demit dari sini. Distaa nggak janji bisa sempurna, tapi distaa janji bakal selalu berusaha ada buat demitt.<br><br>
-
-    <b>HAPPY BIRTHDAY SAYANG, demitt udahh tuaa hehehee</b><br>
-    <b>I LOVEE YOUU 🤍</b>
+  <!-- 🖼️ FOTO -->
+  <div class="photos">
+    <img src="IMG_20260324_153902_827.jpg">
+    <img src="IMG_20260425_063332_219.jpg">
+    <img src="IMG_20260428_121429_289.jpg">
+    <img src="webcam-toy-photo22.jpg">
   </div>
 
-  <script>
-    function openLetter() {
-      document.getElementById("letter").style.display = "block";
-    }
-  </script>
+  <!-- 🖼️ GAMBAR TAMBAHAN -->
+  <div class="extra">
+    <img src="jepreto-regular-1777698363245.png">
+  </div>
+
+  <!-- 💌 PESAN -->
+  <div class="card">
+
+Hai demittt, distaa cuma mau bilang makasih ya udah jadi bagian dari hari-harinya distaa. distaa nggaaa selalu bisa nunjukin secara langsung, tapi demitt tuh berarti banget buat distaa. Dari cara demitt peduli, cara demitt selalu ada, sampai hal-hal kecil yang kadang demitt sendiri nggak sadar, itu bikin distaa ngerasa nyaman banget sama demitt.
+
+distaa harap demitt selalu sehat, selalu dimudahkan semua urusannya, dan nggaaa terlalu capek sama dunia yang kadang emang suka bikin pusing yakann demitt. Kalau lagi capek, jangan dipaksa kuat terus ya, istirahat juga nggak apa-apa. distaa di sini bakal selalu dukung demitt, meskipun nggaaa selalu keliatan, tapi distaa beneran ada buat demitt.
+
+distaa juga pengen demitt tau, dista seneng banget bisa kenal sama demit, bisa punya demitt di hidup dista sekarang. Semoga apa pun yang demitt perjuangin bisa berjalan lancar dan hasilnya sesuai sama yang demitt harapin. Jangan lupa bahagia ya, jangan terlalu keras sama diri sendiri.
+
+Dan kalau suatu saat demitt ngerasa dunia lagi nggaaa enak, inget aja kalau ada distaa yang selalu doain demit dari sini. Distaa nggak janji bisa sempurna, tapi distaa janji bakal selalu berusaha ada buat demitt
+
+HAPPY BIRTHDAY SAYANG, demitt udahh tuaa hehehee  
+I LOVEE YOUU🤍
+
+  </div>
 
 </body>
 </html>
