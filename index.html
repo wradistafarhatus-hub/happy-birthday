@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Birthday Page</title>
+<title>Birthday</title>
 
 <style>
 *{
@@ -23,65 +23,59 @@ body{
   color:white;
 }
 
-/* STAR */
-.stars{position:absolute;width:100%;height:100%;}
+/* BACKGROUND STAR */
 .star{
-  position:absolute;width:3px;height:3px;background:white;border-radius:50%;
+  position:absolute;
+  width:3px;
+  height:3px;
+  background:white;
+  border-radius:50%;
   animation:blink 2s infinite;
 }
 @keyframes blink{0%,100%{opacity:0.2;}50%{opacity:1;}}
 
-/* BOOK */
-.book{
-  position:relative;
+/* CARD */
+.card{
   width:90%;
   max-width:420px;
-  height:520px;
-  perspective:1200px;
-  z-index:2;
-}
-
-/* PAGE */
-.page{
-  position:absolute;
-  width:100%;
-  height:100%;
+  padding:20px;
+  border-radius:20px;
   background:rgba(255,255,255,0.08);
   backdrop-filter:blur(10px);
-  border-radius:20px;
-  padding:20px;
+  text-align:center;
   box-shadow:0 0 25px rgba(0,0,0,0.3);
-  transform-origin:left;
-  transition:1s;
-  display:none;
+  position:relative;
+  z-index:2;
+  animation:fade 1s ease;
 }
 
-/* FRONT ENVELOPE PAGE */
-#page0{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  flex-direction:column;
+@keyframes fade{
+  from{opacity:0; transform:scale(0.9);}
+  to{opacity:1; transform:scale(1);}
 }
 
+/* ENVELOPE */
 .envelope{
   font-size:80px;
   cursor:pointer;
   animation:float 2s infinite;
-  transition:0.3s;
 }
-.envelope:hover{transform:scale(1.1) rotate(5deg);}
-
-.hint{font-size:14px;opacity:0.7;margin-top:10px;}
-
 @keyframes float{
   0%,100%{transform:translateY(0);}
   50%{transform:translateY(-10px);}
 }
 
-/* LETTER TEXT */
-.title{font-size:22px;margin-bottom:10px;}
-.text{font-size:14px;line-height:1.6;}
+.hint{font-size:14px;opacity:0.7;margin-top:10px;}
+
+/* PAGE CONTENT */
+.content{display:none;}
+
+h1{font-size:20px;margin-bottom:10px;}
+
+p{
+  font-size:14px;
+  line-height:1.6;
+}
 
 /* POLAROID */
 .polaroid{
@@ -92,36 +86,35 @@ body{
   transform:rotate(-2deg);
 }
 .polaroid img{
-  width:100%;height:200px;object-fit:cover;border-radius:8px;
-}
-.caption{color:black;font-size:12px;margin-top:5px;text-align:center;}
-
-/* BUTTONS */
-.nav{
-  position:absolute;
-  bottom:15px;
   width:100%;
-  display:flex;
-  justify-content:space-between;
-  padding:0 15px;
+  height:200px;
+  object-fit:cover;
+  border-radius:8px;
+}
+.caption{
+  color:black;
+  font-size:12px;
+  margin-top:5px;
 }
 
+/* BUTTON */
 button{
+  margin-top:10px;
   padding:8px 12px;
   border:none;
   border-radius:10px;
-  cursor:pointer;
   background:#1db954;
   color:white;
+  cursor:pointer;
 }
 
-/* MUSIC */
-.musicBtn{
-  position:absolute;
-  top:15px;
-  right:15px;
+/* MUSIC BOX */
+.musicBox{
+  margin-top:10px;
   background:#111;
-  border:1px solid #333;
+  padding:10px;
+  border-radius:10px;
+  font-size:13px;
 }
 
 /* CONFETTI */
@@ -133,19 +126,10 @@ button{
   animation:fall linear forwards;
 }
 @keyframes fall{
-  to{transform:translateY(110vh) rotate(360deg);opacity:0;}
-}
-
-/* TYPEWRITER */
-.type{
-  overflow:hidden;
-  border-right:2px solid white;
-  white-space:nowrap;
-  animation:typing 3s steps(40,end), blink 0.7s infinite;
-}
-@keyframes typing{
-  from{width:0;}
-  to{width:100%;}
+  to{
+    transform:translateY(110vh);
+    opacity:0;
+  }
 }
 
 </style>
@@ -153,134 +137,101 @@ button{
 
 <body>
 
-<div class="stars"></div>
+<div id="stars"></div>
 
-<div class="book">
+<div class="card">
 
-  <!-- PAGE 0 -->
-  <div class="page" id="page0" style="display:flex;">
-    <div class="envelope" onclick="openBook()">✉️</div>
+  <!-- ENVELOPE -->
+  <div id="envelope" class="envelope" onclick="openCard()">
+    ✉️
     <div class="hint">klik untuk membuka</div>
   </div>
 
-  <!-- PAGE 1 -->
-  <div class="page" id="page1">
-    <div class="title">Selamat Ulang Tahun 🤍</div>
-    <div class="text type" id="typeText"></div>
+  <!-- CONTENT -->
+  <div id="content" class="content">
 
+    <h1>Selamat Ulang Tahun 🤍</h1>
+
+    <p>
+      Semoga kamu selalu dikelilingi hal baik,  
+      selalu diberi ketenangan, dan semua yang kamu harapkan pelan-pelan tercapai.<br><br>
+
+      Aku nggak minta banyak,  
+      cuma pengen kamu bahagia terus.
+    </p>
+
+    <p style="margin-top:10px;font-weight:bold;">
+      i love you sayangg 🤍
+    </p>
+
+    <!-- POLAROID -->
     <div class="polaroid">
-      <img id="img">
+      <img id="img" src="">
       <div class="caption">memories ✨</div>
     </div>
-  </div>
 
-  <!-- PAGE 2 -->
-  <div class="page" id="page2">
-    <div class="title">Pesan kecil</div>
-    <div class="text">
-      Aku nggak tahu harus mulai dari mana,<br><br>
-      tapi yang pasti aku berharap kamu selalu baik-baik aja,<br>
-      selalu punya orang yang sayang sama kamu,<br>
-      dan selalu punya alasan untuk terus jalan maju.<br><br>
-
-      i love you sayangg 🤍
+    <!-- MUSIC -->
+    <div class="musicBox">
+      🎵 Music Player
+      <br>
+      <button onclick="toggleMusic()">Play / Pause</button>
     </div>
-  </div>
 
-  <!-- MUSIC -->
-  <button class="musicBtn" onclick="toggleMusic()">🎵</button>
-  <audio id="music" loop>
-    <source src="musik.mp3">
-  </audio>
+    <audio id="music" loop>
+      <source src="musik.mp3" type="audio/mpeg">
+    </audio>
 
-  <!-- NAV -->
-  <div class="nav">
-    <button onclick="prev()">⬅</button>
-    <button onclick="next()">➡</button>
   </div>
 
 </div>
 
 <script>
 
-let page = 0;
-
-function showPage(n){
-  document.querySelectorAll(".page").forEach(p=>p.style.display="none");
-  document.getElementById("page"+n).style.display="block";
-}
-
 /* OPEN */
-function openBook(){
-  page = 1;
-  showPage(page);
-  typeWriter();
+function openCard(){
+  document.getElementById("envelope").style.display="none";
+  document.getElementById("content").style.display="block";
   startConfetti();
 }
-
-/* NAV */
-function next(){
-  if(page<2) page++;
-  showPage(page);
-}
-function prev(){
-  if(page>1) page--;
-  showPage(page);
-}
-
-/* TYPEWRITER */
-let text = "Semoga kamu selalu bahagia, selalu dikelilingi hal baik, dan semua yang kamu inginkan bisa tercapai pelan-pelan.";
-let i = 0;
-
-function typeWriter(){
-  let el = document.getElementById("typeText");
-  el.innerHTML = "";
-  i = 0;
-  let interval = setInterval(()=>{
-    if(i < text.length){
-      el.innerHTML += text[i];
-      i++;
-    } else {
-      clearInterval(interval);
-    }
-  },40);
-}
-
-/* IMAGE SLIDER */
-let images = [
- "IMG_20260324_153902_827.jpg",
- "IMG_20260425_063332_219.jpg",
- "IMG_20260428_121429_289.jpg",
- "webcam-toy-photo22.jpg"
-];
-
-let idx=0;
-setInterval(()=>{
-  if(document.getElementById("page1").style.display=="block"){
-    document.getElementById("img").src = images[idx];
-    idx = (idx+1)%images.length;
-  }
-},2500);
 
 /* MUSIC */
 function toggleMusic(){
   let m = document.getElementById("music");
-  if(m.paused) m.play();
-  else m.pause();
+  if(m.paused){
+    m.play();
+  } else {
+    m.pause();
+  }
 }
 
-/* STAR */
-for(let i=0;i<60;i++){
+/* IMAGE SLIDER */
+let images = [
+  "IMG_20260324_153902_827.jpg",
+  "IMG_20260425_063332_219.jpg",
+  "IMG_20260428_121429_289.jpg",
+  "webcam-toy-photo22.jpg"
+];
+
+let i=0;
+setInterval(()=>{
+  if(document.getElementById("content").style.display=="block"){
+    document.getElementById("img").src = images[i];
+    i = (i+1)%images.length;
+  }
+},2500);
+
+/* STARS */
+for(let i=0;i<50;i++){
   let s=document.createElement("div");
   s.className="star";
   s.style.left=Math.random()*100+"%";
   s.style.top=Math.random()*100+"%";
-  document.querySelector(".stars").appendChild(s);
+  document.getElementById("stars").appendChild(s);
 }
 
 /* CONFETTI */
 function startConfetti(){
-  for(let i=0;i<50;i++){
+  for(let i=0;i<40;i++){
     let c=document.createElement("div");
     c.className="confetti";
     c.style.left=Math.random()*100+"%";
