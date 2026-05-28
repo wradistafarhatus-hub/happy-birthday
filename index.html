@@ -7,7 +7,7 @@
 <style>
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: Arial;
 }
 
 /* ================= PAGE 1 ================= */
@@ -33,24 +33,14 @@ body {
   transform: scale(1.1);
 }
 
-/* PESAN DI PAGE 1 */
 .message {
   display: none;
   margin-top: 20px;
   background: rgba(0,0,0,0.6);
   padding: 20px;
   border-radius: 15px;
-  max-width: 600px;
+  max-width: 650px;
   line-height: 1.6;
-}
-
-/* tombol lanjut */
-.btn {
-  margin-top: 15px;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
 }
 
 /* ================= PAGE 2 ================= */
@@ -62,6 +52,63 @@ body {
   padding: 20px;
 }
 
+/* TIKTOK STYLE CARD */
+.tiktok-card {
+  background: #1c1c1c;
+  max-width: 400px;
+  margin: auto;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+.preview {
+  height: 200px;
+  background: linear-gradient(135deg, #ff0050, #000);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+}
+
+.tiktok-content {
+  padding: 15px;
+}
+
+.tiktok-title {
+  font-size: 14px;
+  color: #ccc;
+}
+
+.tiktok-desc {
+  font-size: 13px;
+  margin-top: 8px;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 10px;
+  background: #ff0050;
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: white;
+  text-decoration: none;
+}
+
+/* MUSIC */
+.music-box {
+  background: #1db954;
+  padding: 12px;
+  border-radius: 12px;
+  margin: 20px auto;
+  max-width: 400px;
+}
+
+/* FOTO */
+.photos {
+  text-align: center;
+}
+
 .photos img {
   width: 140px;
   margin: 8px;
@@ -69,19 +116,15 @@ body {
   border: 3px solid white;
 }
 
+/* PESAN */
 .card {
   background: black;
+  max-width: 700px;
+  margin: 30px auto;
   padding: 20px;
   border-radius: 15px;
-  margin-top: 20px;
   line-height: 1.6;
-}
-
-.music-box {
-  background: #1db954;
-  padding: 15px;
-  border-radius: 12px;
-  margin: 20px 0;
+  white-space: pre-line;
 }
 </style>
 </head>
@@ -91,25 +134,21 @@ body {
 <!-- ================= PAGE 1 ================= -->
 <div id="page1">
 
-  <h2>💌 Klik amplopnya</h2>
+  <h2>💌 Klik Amplop</h2>
 
   <img src="amplop.png" class="envelope" onclick="openLetter()">
 
-  <!-- PESAN MASUK DI HALAMAN 1 -->
   <div class="message" id="msg">
 
 Hai demittt, distaa cuma mau bilang makasih ya udah jadi bagian dari hari-harinya distaa. distaa nggaaa selalu bisa nunjukin secara langsung, tapi demitt tuh berarti banget buat distaa. Dari cara demitt peduli, cara demitt selalu ada, sampai hal-hal kecil yang kadang demitt sendiri nggak sadar, itu bikin distaa ngerasa nyaman banget sama demitt.
 
-distaa harap demitt selalu sehat, selalu dimudahkan semua urusannya, dan nggaaa terlalu capek sama dunia yang kadang emang suka bikin pusing yakann demitt.
-
-distaa di sini bakal selalu dukung demitt, meskipun nggaaa selalu keliatan, tapi distaa beneran ada buat demitt.
+distaa harap demitt selalu sehat, selalu dimudahkan semua urusannya...
 
 HAPPY BIRTHDAY SAYANG 🤍  
 I LOVEE YOUU
 
     <br><br>
-
-    <button class="btn" onclick="goPage2()">Lanjut ➜</button>
+    <button onclick="goPage2()">Lanjut ➜</button>
   </div>
 
 </div>
@@ -119,7 +158,30 @@ I LOVEE YOUU
 
   <h2>💙 Happy Birthday 💙</h2>
 
-  <!-- MUSIC SPOTIFY STYLE -->
+  <!-- TIKTOK STYLE CARD -->
+  <div class="tiktok-card">
+
+    <div class="preview">▶</div>
+
+    <div class="tiktok-content">
+      <div class="tiktok-title">
+        Lihat TikTok yang saya temukan ini!
+      </div>
+
+      <div class="tiktok-desc">
+        the things we do for people for ...
+      </div>
+
+      <a class="btn"
+         href="https://vt.tiktok.com/ZSxqmeQn5/"
+         target="_blank">
+        ▶ Tonton Video
+      </a>
+    </div>
+
+  </div>
+
+  <!-- MUSIC -->
   <div class="music-box">
     🎵
     <audio controls autoplay loop>
@@ -135,17 +197,15 @@ I LOVEE YOUU
     <img src="webcam-toy-photo22.jpg">
   </div>
 
-  <!-- GAMBAR -->
-  <div>
+  <!-- GAMBAR TAMBAHAN -->
+  <div style="text-align:center;">
     <img src="jepreto-regular-1777698363245.png" width="200">
   </div>
 
   <!-- PESAN LENGKAP -->
   <div class="card">
 
-Hai demittt, distaa cuma mau bilang makasih ya udah jadi bagian dari hari-harinya distaa. distaa nggaaa selalu bisa nunjukin secara langsung, tapi demitt tuh berarti banget buat distaa...
-
-Distaa janji bakal selalu ada buat demitt.
+Hai demittt, distaa cuma mau bilang makasih ya udah jadi bagian dari hari-harinya distaa...
 
 HAPPY BIRTHDAY SAYANG 🤍  
 I LOVEE YOUU
