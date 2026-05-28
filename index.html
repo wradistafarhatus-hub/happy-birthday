@@ -3,99 +3,131 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday 💙</title>
+<title>Birthday Page</title>
 
 <style>
-
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,sans-serif;
 }
 
 body{
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-background:linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
-overflow:hidden;
-color:white;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
+  color:white;
+  overflow:hidden;
 }
 
+/* STAR BACKGROUND */
 .stars{
-position:absolute;
-width:100%;
-height:100%;
-top:0;
-left:0;
+  position:absolute;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
 }
 
 .star{
-position:absolute;
-width:3px;
-height:3px;
-background:white;
-border-radius:50%;
-animation:blink 2s infinite;
+  position:absolute;
+  width:3px;
+  height:3px;
+  background:white;
+  border-radius:50%;
+  animation:blink 2s infinite;
 }
 
 @keyframes blink{
-0%,100%{opacity:0.2;}
-50%{opacity:1;}
+  0%,100%{opacity:0.2;}
+  50%{opacity:1;}
 }
 
+/* CARD */
 .card{
-position:relative;
-z-index:2;
-width:90%;
-max-width:400px;
-padding:30px;
-border-radius:25px;
-text-align:center;
-background:rgba(255,255,255,0.08);
-backdrop-filter:blur(10px);
-box-shadow:0 0 25px rgba(0,0,0,0.3);
+  position:relative;
+  z-index:2;
+  width:90%;
+  max-width:420px;
+  padding:25px;
+  border-radius:20px;
+  text-align:center;
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(10px);
+  box-shadow:0 0 25px rgba(0,0,0,0.3);
 }
 
-img{
-width:200px;
-height:200px;
-object-fit:cover;
-border-radius:20px;
-margin-bottom:20px;
-border:3px solid white;
+/* ENVELOPE */
+.envelope{
+  font-size:80px;
+  cursor:pointer;
+  transition:0.4s;
+  user-select:none;
+}
+
+.envelope:hover{
+  transform:scale(1.1);
+}
+
+.hint{
+  font-size:14px;
+  opacity:0.7;
+  margin-top:10px;
+}
+
+/* LETTER */
+.letter{
+  display:none;
+  animation:fadeIn 1s ease;
+  margin-bottom:20px;
+}
+
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(20px);}
+  to{opacity:1; transform:translateY(0);}
 }
 
 h1{
-margin-bottom:15px;
-font-size:30px;
+  font-size:24px;
+  margin-bottom:15px;
 }
 
 p{
-font-size:16px;
-line-height:1.7;
-margin-bottom:20px;
+  font-size:15px;
+  line-height:1.6;
 }
 
+/* SLIDER IMAGE */
+img{
+  width:200px;
+  height:200px;
+  object-fit:cover;
+  border-radius:15px;
+  margin-top:15px;
+  border:2px solid white;
+}
+
+/* AUDIO */
 audio{
-width:100%;
-margin-top:15px;
+  width:100%;
+  margin-top:15px;
 }
 
+/* CAKE */
 .cake{
-font-size:60px;
-margin-top:15px;
-animation:float 2s infinite;
+  font-size:50px;
+  margin-top:10px;
+  animation:float 2s infinite;
 }
 
 @keyframes float{
-0%{transform:translateY(0);}
-50%{transform:translateY(-10px);}
-100%{transform:translateY(0);}
+  0%{transform:translateY(0);}
+  50%{transform:translateY(-10px);}
+  100%{transform:translateY(0);}
 }
-
 </style>
 </head>
 
@@ -105,66 +137,75 @@ animation:float 2s infinite;
 
 <div class="card">
 
-<img id="slide" src="IMG_20260324_153902_827.jpg">
+  <!-- AMPLOP -->
+  <div class="envelope" id="envelope" onclick="openLetter()">
+    ✉️
+    <div class="hint">Klik untuk membuka</div>
+  </div>
 
-<h1>Happy Birthday Sayang 💙</h1>
+  <!-- SURAT -->
+  <div class="letter" id="letter">
+    <h1>Selamat Ulang Tahun</h1>
+    <p>
+      Semoga hari ini membawa ketenangan dan hal-hal baik.<br><br>
 
-<p>
-Selamat ulang tahun cintakuuu 🤍<br><br>
+      Semoga kesehatan selalu terjaga, langkah ke depan dimudahkan,  
+      dan apa yang diinginkan bisa tercapai dengan baik.<br><br>
 
-Semoga kamu selalu sehat, bahagia, dan semua impian kamu tercapai satu per satu.  
-Terima kasih sudah hadir dan jadi bagian terbaik di hidup aku 💙
-</p>
+      Terima kasih atas setiap proses yang pernah terjadi dalam perjalanan hidup ini.
+    </p>
+  </div>
 
-<audio controls loop>
-<source src="1f813fc63cd925e339dc1af3d1218f3e.mp4" type="audio/mp4">
-</audio>
+  <!-- SLIDE FOTO -->
+  <img id="slide" style="display:none;">
 
-<div class="cake">🎂</div>
+  <!-- AUDIO -->
+  <audio controls loop style="display:none;" id="music">
+    <source src="musik.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- CAKE -->
+  <div class="cake" style="display:none;" id="cake">🎂</div>
 
 </div>
 
 <script>
 
+/* OPEN LETTER */
+function openLetter(){
+  document.getElementById("envelope").style.display = "none";
+  document.getElementById("letter").style.display = "block";
+  document.getElementById("slide").style.display = "block";
+  document.getElementById("music").style.display = "block";
+  document.getElementById("cake").style.display = "block";
+}
+
+/* SLIDESHOW */
 let images = [
-
-"IMG_20260324_153902_827.jpg",
-"IMG_20260425_063332_219.jpg",
-"IMG_20260428_121429_289.jpg",
-"webcam-toy-photo22.jpg"
-
+  "IMG_20260324_153902_827.jpg",
+  "IMG_20260425_063332_219.jpg",
+  "IMG_20260428_121429_289.jpg",
+  "webcam-toy-photo22.jpg"
 ];
 
 let index = 0;
 
-setInterval(function(){
+setInterval(() => {
+  index++;
+  if(index >= images.length) index = 0;
+  document.getElementById("slide").src = images[index];
+}, 3000);
 
-index++;
-
-if(index >= images.length){
-index = 0;
-}
-
-document.getElementById("slide").src = images[index];
-
-},2000);
-
-for(let j=0;j<60;j++){
-
-let star = document.createElement("div");
-
-star.className = "star";
-
-star.style.left = Math.random()*100 + "%";
-
-star.style.top = Math.random()*100 + "%";
-
-document.querySelector(".stars").appendChild(star);
-
+/* STAR EFFECT */
+for(let i=0;i<60;i++){
+  let star = document.createElement("div");
+  star.className = "star";
+  star.style.left = Math.random()*100 + "%";
+  star.style.top = Math.random()*100 + "%";
+  document.querySelector(".stars").appendChild(star);
 }
 
 </script>
 
 </body>
-
 </html>
