@@ -7,81 +7,115 @@
 
 <style>
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
 }
 
 body{
-    height:100vh;
-    background:linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    overflow:hidden;
-    color:white;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
+overflow:hidden;
+color:white;
 }
 
 .card{
-    width:90%;
-    max-width:400px;
-    background:rgba(255,255,255,0.08);
-    backdrop-filter:blur(10px);
-    padding:30px;
-    border-radius:25px;
-    text-align:center;
-    animation:fade 2s ease;
-    box-shadow:0 0 30px rgba(0,0,0,0.3);
+width:90%;
+max-width:400px;
+padding:30px;
+border-radius:25px;
+text-align:center;
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(10px);
+box-shadow:0 0 25px rgba(0,0,0,0.3);
+animation:fade 2s ease;
 }
 
 img{
-    width:180px;
-    height:180px;
-    border-radius:20px;
-    object-fit:cover;
-    margin-bottom:20px;
-    border:3px solid white;
+width:200px;
+height:200px;
+object-fit:cover;
+border-radius:20px;
+margin-bottom:20px;
+border:3px solid white;
 }
 
 h1{
-    margin-bottom:15px;
+margin-bottom:15px;
 }
 
 p{
-    line-height:1.7;
-    font-size:17px;
+font-size:16px;
+line-height:1.7;
 }
 
 .heart{
-    font-size:35px;
-    margin-top:20px;
-    animation:beat 1s infinite;
+font-size:35px;
+margin-top:20px;
+animation:beat 1s infinite;
 }
 
 @keyframes beat{
-    0%{transform:scale(1);}
-    50%{transform:scale(1.2);}
-    100%{transform:scale(1);}
+0%{transform:scale(1);}
+50%{transform:scale(1.2);}
+100%{transform:scale(1);}
 }
 
 @keyframes fade{
-    from{
-        opacity:0;
-        transform:translateY(30px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
+from{
+opacity:0;
+transform:translateY(20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
 }
 </style>
 </head>
-    <script>
+
+<body>
+
+<div class="card">
+
+<img id="slide" src="IMG_20260324_153902_827.jpg">
+
+<h1>Happy Birthday Sayang 💙</h1>
+
+<p>
+Selamat ulang tahun untuk cowo paling spesial di hidup aku 🤍<br><br>
+
+Semoga semua hal baik selalu datang ke hidup kamu.
+Semoga kamu selalu sehat, bahagia, dimudahkan semua urusannya, dan semua impian kamu bisa tercapai satu per satu.<br><br>
+
+Terima kasih karena selalu ada dan jadi rumah terbaik buat aku.
+Aku bangga banget punya kamu 💙
+</p>
+
+<div class="heart">💙</div>
+
+</div>
+
+<audio autoplay loop>
+<source src="1f813fc63cd925e339dc1af3d1218f3e.mp4" type="audio/mp4">
+</audio>
+
+<script>
+
 let images = [
-"foto1.jpg",
-"foto2.jpg",
-"foto3.jpg"
+
+"IMG_20260324_153902_827.jpg",
+
+"IMG_20260425_063332_219.jpg",
+
+"IMG_20260428_121429_289.jpg",
+
+"webcam-toy-photo22.jpg"
+
 ];
 
 let index = 0;
@@ -97,33 +131,9 @@ index = 0;
 document.getElementById("slide").src = images[index];
 
 },2000);
-    </script>
 
-<body>
-
-<div class="card">
-
-<img id="slide" src="foto1.jpg">
-
-<h1>Happy Birthday Sayang 💙</h1>
-
-<p>
-Selamat ulang tahun cintakuuuu 🤍<br><br>
-
-Semoga semua hal baik selalu datang ke hidup kamu.
-Semoga kamu selalu sehat, bahagia, dan semua impian kamu tercapai satu per satu.<br><br>
-
-Terima kasih sudah hadir dan jadi bagian terbaik di hidup aku.  
-Aku bersyukur banget punya kamu 💙
-</p>
-
-<div class="heart">💙</div>
-
-</div>
-
-<audio autoplay loop>
-<source src="1f813fc63cd925e339dc1af3d1218f3e.mp4" type="audio/mp3">
-</audio>
+</script>
 
 </body>
+
 </html>
