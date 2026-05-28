@@ -19,115 +19,135 @@ body{
   justify-content:center;
   align-items:center;
   background:linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
-  color:white;
   overflow:hidden;
+  color:white;
 }
 
-/* STAR BACKGROUND */
-.stars{
+/* STAR */
+.stars{position:absolute;width:100%;height:100%;}
+.star{
+  position:absolute;width:3px;height:3px;background:white;border-radius:50%;
+  animation:blink 2s infinite;
+}
+@keyframes blink{0%,100%{opacity:0.2;}50%{opacity:1;}}
+
+/* BOOK */
+.book{
+  position:relative;
+  width:90%;
+  max-width:420px;
+  height:520px;
+  perspective:1200px;
+  z-index:2;
+}
+
+/* PAGE */
+.page{
   position:absolute;
   width:100%;
   height:100%;
-  top:0;
-  left:0;
-}
-
-.star{
-  position:absolute;
-  width:3px;
-  height:3px;
-  background:white;
-  border-radius:50%;
-  animation:blink 2s infinite;
-}
-
-@keyframes blink{
-  0%,100%{opacity:0.2;}
-  50%{opacity:1;}
-}
-
-/* CARD */
-.card{
-  position:relative;
-  z-index:2;
-  width:90%;
-  max-width:420px;
-  padding:25px;
-  border-radius:20px;
-  text-align:center;
   background:rgba(255,255,255,0.08);
   backdrop-filter:blur(10px);
+  border-radius:20px;
+  padding:20px;
   box-shadow:0 0 25px rgba(0,0,0,0.3);
+  transform-origin:left;
+  transition:1s;
+  display:none;
 }
 
-/* ENVELOPE */
+/* FRONT ENVELOPE PAGE */
+#page0{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+}
+
 .envelope{
   font-size:80px;
   cursor:pointer;
-  transition:0.4s;
-  user-select:none;
-}
-
-.envelope:hover{
-  transform:scale(1.1);
-}
-
-.hint{
-  font-size:14px;
-  opacity:0.7;
-  margin-top:10px;
-}
-
-/* LETTER */
-.letter{
-  display:none;
-  animation:fadeIn 1s ease;
-  margin-bottom:20px;
-}
-
-@keyframes fadeIn{
-  from{opacity:0; transform:translateY(20px);}
-  to{opacity:1; transform:translateY(0);}
-}
-
-h1{
-  font-size:24px;
-  margin-bottom:15px;
-}
-
-p{
-  font-size:15px;
-  line-height:1.6;
-}
-
-/* SLIDER IMAGE */
-img{
-  width:200px;
-  height:200px;
-  object-fit:cover;
-  border-radius:15px;
-  margin-top:15px;
-  border:2px solid white;
-}
-
-/* AUDIO */
-audio{
-  width:100%;
-  margin-top:15px;
-}
-
-/* CAKE */
-.cake{
-  font-size:50px;
-  margin-top:10px;
   animation:float 2s infinite;
+  transition:0.3s;
 }
+.envelope:hover{transform:scale(1.1) rotate(5deg);}
+
+.hint{font-size:14px;opacity:0.7;margin-top:10px;}
 
 @keyframes float{
-  0%{transform:translateY(0);}
+  0%,100%{transform:translateY(0);}
   50%{transform:translateY(-10px);}
-  100%{transform:translateY(0);}
 }
+
+/* LETTER TEXT */
+.title{font-size:22px;margin-bottom:10px;}
+.text{font-size:14px;line-height:1.6;}
+
+/* POLAROID */
+.polaroid{
+  background:white;
+  padding:10px 10px 25px;
+  border-radius:10px;
+  margin-top:15px;
+  transform:rotate(-2deg);
+}
+.polaroid img{
+  width:100%;height:200px;object-fit:cover;border-radius:8px;
+}
+.caption{color:black;font-size:12px;margin-top:5px;text-align:center;}
+
+/* BUTTONS */
+.nav{
+  position:absolute;
+  bottom:15px;
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  padding:0 15px;
+}
+
+button{
+  padding:8px 12px;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+  background:#1db954;
+  color:white;
+}
+
+/* MUSIC */
+.musicBtn{
+  position:absolute;
+  top:15px;
+  right:15px;
+  background:#111;
+  border:1px solid #333;
+}
+
+/* CONFETTI */
+.confetti{
+  position:absolute;
+  width:6px;
+  height:6px;
+  top:-10px;
+  animation:fall linear forwards;
+}
+@keyframes fall{
+  to{transform:translateY(110vh) rotate(360deg);opacity:0;}
+}
+
+/* TYPEWRITER */
+.type{
+  overflow:hidden;
+  border-right:2px solid white;
+  white-space:nowrap;
+  animation:typing 3s steps(40,end), blink 0.7s infinite;
+}
+@keyframes typing{
+  from{width:0;}
+  to{width:100%;}
+}
+
 </style>
 </head>
 
@@ -135,74 +155,139 @@ audio{
 
 <div class="stars"></div>
 
-<div class="card">
+<div class="book">
 
-  <!-- AMPLOP -->
-  <div class="envelope" id="envelope" onclick="openLetter()">
-    ✉️
-    <div class="hint">Klik untuk membuka</div>
+  <!-- PAGE 0 -->
+  <div class="page" id="page0" style="display:flex;">
+    <div class="envelope" onclick="openBook()">✉️</div>
+    <div class="hint">klik untuk membuka</div>
   </div>
 
-  <!-- SURAT -->
-  <div class="letter" id="letter">
-    <h1>Selamat Ulang Tahun</h1>
-    <p>
-      Semoga hari ini membawa ketenangan dan hal-hal baik.<br><br>
+  <!-- PAGE 1 -->
+  <div class="page" id="page1">
+    <div class="title">Selamat Ulang Tahun 🤍</div>
+    <div class="text type" id="typeText"></div>
 
-      Semoga kesehatan selalu terjaga, langkah ke depan dimudahkan,  
-      dan apa yang diinginkan bisa tercapai dengan baik.<br><br>
-
-      Terima kasih atas setiap proses yang pernah terjadi dalam perjalanan hidup ini.
-    </p>
+    <div class="polaroid">
+      <img id="img">
+      <div class="caption">memories ✨</div>
+    </div>
   </div>
 
-  <!-- SLIDE FOTO -->
-  <img id="slide" style="display:none;">
+  <!-- PAGE 2 -->
+  <div class="page" id="page2">
+    <div class="title">Pesan kecil</div>
+    <div class="text">
+      Aku nggak tahu harus mulai dari mana,<br><br>
+      tapi yang pasti aku berharap kamu selalu baik-baik aja,<br>
+      selalu punya orang yang sayang sama kamu,<br>
+      dan selalu punya alasan untuk terus jalan maju.<br><br>
 
-  <!-- AUDIO -->
-  <audio controls loop style="display:none;" id="music">
-    <source src="musik.mp3" type="audio/mpeg">
+      i love you sayangg 🤍
+    </div>
+  </div>
+
+  <!-- MUSIC -->
+  <button class="musicBtn" onclick="toggleMusic()">🎵</button>
+  <audio id="music" loop>
+    <source src="musik.mp3">
   </audio>
 
-  <!-- CAKE -->
-  <div class="cake" style="display:none;" id="cake">🎂</div>
+  <!-- NAV -->
+  <div class="nav">
+    <button onclick="prev()">⬅</button>
+    <button onclick="next()">➡</button>
+  </div>
 
 </div>
 
 <script>
 
-/* OPEN LETTER */
-function openLetter(){
-  document.getElementById("envelope").style.display = "none";
-  document.getElementById("letter").style.display = "block";
-  document.getElementById("slide").style.display = "block";
-  document.getElementById("music").style.display = "block";
-  document.getElementById("cake").style.display = "block";
+let page = 0;
+
+function showPage(n){
+  document.querySelectorAll(".page").forEach(p=>p.style.display="none");
+  document.getElementById("page"+n).style.display="block";
 }
 
-/* SLIDESHOW */
+/* OPEN */
+function openBook(){
+  page = 1;
+  showPage(page);
+  typeWriter();
+  startConfetti();
+}
+
+/* NAV */
+function next(){
+  if(page<2) page++;
+  showPage(page);
+}
+function prev(){
+  if(page>1) page--;
+  showPage(page);
+}
+
+/* TYPEWRITER */
+let text = "Semoga kamu selalu bahagia, selalu dikelilingi hal baik, dan semua yang kamu inginkan bisa tercapai pelan-pelan.";
+let i = 0;
+
+function typeWriter(){
+  let el = document.getElementById("typeText");
+  el.innerHTML = "";
+  i = 0;
+  let interval = setInterval(()=>{
+    if(i < text.length){
+      el.innerHTML += text[i];
+      i++;
+    } else {
+      clearInterval(interval);
+    }
+  },40);
+}
+
+/* IMAGE SLIDER */
 let images = [
-  "IMG_20260324_153902_827.jpg",
-  "IMG_20260425_063332_219.jpg",
-  "IMG_20260428_121429_289.jpg",
-  "webcam-toy-photo22.jpg"
+ "IMG_20260324_153902_827.jpg",
+ "IMG_20260425_063332_219.jpg",
+ "IMG_20260428_121429_289.jpg",
+ "webcam-toy-photo22.jpg"
 ];
 
-let index = 0;
+let idx=0;
+setInterval(()=>{
+  if(document.getElementById("page1").style.display=="block"){
+    document.getElementById("img").src = images[idx];
+    idx = (idx+1)%images.length;
+  }
+},2500);
 
-setInterval(() => {
-  index++;
-  if(index >= images.length) index = 0;
-  document.getElementById("slide").src = images[index];
-}, 3000);
+/* MUSIC */
+function toggleMusic(){
+  let m = document.getElementById("music");
+  if(m.paused) m.play();
+  else m.pause();
+}
 
-/* STAR EFFECT */
+/* STAR */
 for(let i=0;i<60;i++){
-  let star = document.createElement("div");
-  star.className = "star";
-  star.style.left = Math.random()*100 + "%";
-  star.style.top = Math.random()*100 + "%";
-  document.querySelector(".stars").appendChild(star);
+  let s=document.createElement("div");
+  s.className="star";
+  s.style.left=Math.random()*100+"%";
+  s.style.top=Math.random()*100+"%";
+  document.querySelector(".stars").appendChild(s);
+}
+
+/* CONFETTI */
+function startConfetti(){
+  for(let i=0;i<50;i++){
+    let c=document.createElement("div");
+    c.className="confetti";
+    c.style.left=Math.random()*100+"%";
+    c.style.background=["#fff","#ff0","#f0f","#0ff"][Math.floor(Math.random()*4)];
+    c.style.animationDuration=(2+Math.random()*3)+"s";
+    document.body.appendChild(c);
+  }
 }
 
 </script>
