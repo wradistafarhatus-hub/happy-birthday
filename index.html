@@ -22,7 +22,6 @@ align-items:center;
 background:linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
 overflow:hidden;
 color:white;
-transition:1s;
 }
 
 .stars{
@@ -58,7 +57,6 @@ text-align:center;
 background:rgba(255,255,255,0.08);
 backdrop-filter:blur(10px);
 box-shadow:0 0 25px rgba(0,0,0,0.3);
-animation:fade 2s ease;
 }
 
 img{
@@ -78,59 +76,24 @@ font-size:30px;
 p{
 font-size:16px;
 line-height:1.7;
-min-height:180px;
+margin-bottom:20px;
 }
 
-button{
-margin-top:20px;
-padding:12px 25px;
-border:none;
-border-radius:20px;
-background:white;
-color:#1e3a8a;
-font-weight:bold;
-font-size:16px;
-cursor:pointer;
-transition:0.3s;
-}
-
-button:hover{
-transform:scale(1.05);
+audio{
+width:100%;
+margin-top:15px;
 }
 
 .cake{
 font-size:60px;
-margin-top:20px;
+margin-top:15px;
 animation:float 2s infinite;
-}
-
-.heart{
-font-size:35px;
-margin-top:10px;
-animation:beat 1s infinite;
-}
-
-@keyframes beat{
-0%{transform:scale(1);}
-50%{transform:scale(1.2);}
-100%{transform:scale(1);}
 }
 
 @keyframes float{
 0%{transform:translateY(0);}
 50%{transform:translateY(-10px);}
 100%{transform:translateY(0);}
-}
-
-@keyframes fade{
-from{
-opacity:0;
-transform:translateY(20px);
-}
-to{
-opacity:1;
-transform:translateY(0);
-}
 }
 
 </style>
@@ -146,47 +109,22 @@ transform:translateY(0);
 
 <h1>Happy Birthday Sayang 💙</h1>
 
-<p id="text"></p>
+<p>
+Selamat ulang tahun cintakuuu 🤍<br><br>
 
-<button onclick="showLove()">Klik Aku 🎉</button>
+Semoga kamu selalu sehat, bahagia, dan semua impian kamu tercapai satu per satu.  
+Terima kasih sudah hadir dan jadi bagian terbaik di hidup aku 💙
+</p>
+
+<audio controls loop>
+<source src="1f813fc63cd925e339dc1af3d1218f3e.mp4" type="audio/mp4">
+</audio>
 
 <div class="cake">🎂</div>
 
-<div class="heart">💙</div>
-
 </div>
 
-<video id="musik" loop hidden>
-<source src="1f813fc63cd925e339dc1af3d1218f3e.mp4" type="video/mp4">
-</video>
-
 <script>
-
-document.body.addEventListener("click", function(){
-
-document.getElementById("musik").play();
-
-});
-
-let message = "Selamat ulang tahun cintakuuu 🤍 Semoga semua hal baik selalu datang ke hidup kamu. Semoga kamu selalu sehat, bahagia, dimudahkan semua urusannya, dan semua impian kamu tercapai satu per satu. Terima kasih sudah hadir dan jadi bagian terbaik di hidup aku 💙";
-
-let i = 0;
-
-function typing(){
-
-if(i < message.length){
-
-document.getElementById("text").innerHTML += message.charAt(i);
-
-i++;
-
-setTimeout(typing,50);
-
-}
-
-}
-
-typing();
 
 let images = [
 
@@ -225,17 +163,8 @@ document.querySelector(".stars").appendChild(star);
 
 }
 
-function showLove(){
-
-document.body.style.background =
-"linear-gradient(135deg,#2563eb,#7c3aed,#ec4899)";
-
-document.querySelector(".card").innerHTML +=
-"<h2 style='margin-top:20px;'>I LOVE YOU 💙🎉</h2>";
-
-}
-
 </script>
 
 </body>
+
 </html>
