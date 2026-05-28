@@ -8,221 +8,227 @@
 body {
   margin: 0;
   font-family: Arial;
-}
-
-/* ================= PAGE 1 ================= */
-#page1 {
-  height: 100vh;
-  background: linear-gradient(135deg, #1e90ff, #87cefa);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  background: #1e90ff;
   text-align: center;
   color: white;
-  padding: 20px;
+  overflow-x: hidden;
 }
 
+/* ===== ROTI JATUH ===== */
+.roti {
+  position: fixed;
+  top: -50px;
+  font-size: 20px;
+  animation: jatuh linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes jatuh {
+  from {
+    transform: translateY(-50px);
+  }
+  to {
+    transform: translateY(110vh);
+  }
+}
+
+/* ===== AMBLOP ===== */
 .envelope {
-  width: 180px;
+  width: 170px;
+  margin-top: 40px;
   cursor: pointer;
   transition: 0.3s;
 }
 
 .envelope:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
+/* ===== PESAN ===== */
 .message {
   display: none;
-  margin-top: 20px;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0,0,0,0.7);
+  margin: 20px auto;
   padding: 20px;
-  border-radius: 15px;
   max-width: 650px;
+  border-radius: 15px;
   line-height: 1.6;
 }
 
-/* ================= PAGE 2 ================= */
-#page2 {
-  display: none;
-  min-height: 100vh;
-  background: #1e90ff;
-  color: white;
-  padding: 20px;
-}
-
-/* TIKTOK STYLE CARD */
-.tiktok-card {
-  background: #1c1c1c;
-  max-width: 400px;
-  margin: auto;
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-}
-
-.preview {
-  height: 200px;
-  background: linear-gradient(135deg, #ff0050, #000);
+/* ===== MUSIC + CASSETTE ===== */
+.music-box {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 40px;
+  gap: 15px;
+  margin-top: 20px;
 }
 
-.tiktok-content {
-  padding: 15px;
-}
-
-.tiktok-title {
-  font-size: 14px;
-  color: #ccc;
-}
-
-.tiktok-desc {
-  font-size: 13px;
-  margin-top: 8px;
-}
-
-.btn {
-  display: inline-block;
-  margin-top: 10px;
-  background: #ff0050;
-  padding: 8px 12px;
-  border-radius: 8px;
-  color: white;
-  text-decoration: none;
-}
-
-/* MUSIC */
-.music-box {
-  background: #1db954;
-  padding: 12px;
-  border-radius: 12px;
-  margin: 20px auto;
-  max-width: 400px;
-}
-
-/* FOTO */
-.photos {
-  text-align: center;
-}
-
-.photos img {
-  width: 140px;
-  margin: 8px;
+.cassette {
+  width: 70px;
+  height: 70px;
   border-radius: 10px;
+  background: #111;
   border: 3px solid white;
+  position: relative;
 }
 
-/* PESAN */
-.card {
-  background: black;
-  max-width: 700px;
-  margin: 30px auto;
-  padding: 20px;
-  border-radius: 15px;
-  line-height: 1.6;
-  white-space: pre-line;
+.cassette::before,
+.cassette::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: #444;
+  border-radius: 50%;
+  top: 20px;
+}
+
+.cassette::before { left: 20px; }
+.cassette::after { right: 20px; }
+
+.spin {
+  animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ===== POLAROID ===== */
+.photos {
+  margin-top: 20px;
+}
+
+.polaroid {
+  display: inline-block;
+  background: white;
+  color: black;
+  padding: 10px 10px 20px;
+  margin: 10px;
+  width: 140px;
+  border-radius: 5px;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+  transform: rotate(-2deg);
+}
+
+.polaroid img {
+  width: 100%;
+  border-radius: 3px;
+}
+
+.caption {
+  margin-top: 8px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* GAMBAR */
+.extra img {
+  width: 200px;
+  margin-top: 15px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- ================= PAGE 1 ================= -->
-<div id="page1">
+<h2>💌 Happy Birthday 💌</h2>
 
-  <h2>💌 Klik Amplop</h2>
+<!-- 🎂 ROTI JATUH -->
+<div id="roti-container"></div>
 
-  <img src="amplop.png" class="envelope" onclick="openLetter()">
+<!-- 🎵 MUSIC -->
+<div class="music-box">
 
-  <div class="message" id="msg">
+  <div class="cassette" id="cassette"></div>
 
-Hai demittt, distaa cuma mau bilang makasih ya udah jadi bagian dari hari-harinya distaa. distaa nggaaa selalu bisa nunjukin secara langsung, tapi demitt tuh berarti banget buat distaa. Dari cara demitt peduli, cara demitt selalu ada, sampai hal-hal kecil yang kadang demitt sendiri nggak sadar, itu bikin distaa ngerasa nyaman banget sama demitt.
+  <audio id="music" controls autoplay loop>
+    <source src="1f813fc63cd925e339dc1af3d1218f3e.mp4" type="video/mp4">
+  </audio>
 
-distaa harap demitt selalu sehat, selalu dimudahkan semua urusannya...
+</div>
+
+<!-- 💌 AMBLOP -->
+<img src="amplop.png" class="envelope" onclick="openMsg()">
+
+<!-- 💌 PESAN -->
+<div class="message" id="msg">
+
+Hai demittt, distaa cuma mau bilang makasih ya udah jadi bagian dari hari-harinya distaa.
 
 HAPPY BIRTHDAY SAYANG 🤍  
 I LOVEE YOUU
 
-    <br><br>
-    <button onclick="goPage2()">Lanjut ➜</button>
+</div>
+
+<!-- 📸 POLAROID -->
+<div class="photos">
+
+  <div class="polaroid">
+    <img src="IMG_20260324_153902_827.jpg">
+    <div class="caption">Memory</div>
+  </div>
+
+  <div class="polaroid">
+    <img src="IMG_20260425_063332_219.jpg">
+    <div class="caption">Us</div>
+  </div>
+
+  <div class="polaroid">
+    <img src="IMG_20260428_121429_289.jpg">
+    <div class="caption">Moment</div>
+  </div>
+
+  <div class="polaroid">
+    <img src="webcam-toy-photo22.jpg">
+    <div class="caption">Smile</div>
   </div>
 
 </div>
 
-<!-- ================= PAGE 2 ================= -->
-<div id="page2">
-
-  <h2>💙 Happy Birthday 💙</h2>
-
-  <!-- TIKTOK STYLE CARD -->
-  <div class="tiktok-card">
-
-    <div class="preview">▶</div>
-
-    <div class="tiktok-content">
-      <div class="tiktok-title">
-        Lihat TikTok yang saya temukan ini!
-      </div>
-
-      <div class="tiktok-desc">
-        the things we do for people for ...
-      </div>
-
-      <a class="btn"
-         href="https://vt.tiktok.com/ZSxqmeQn5/"
-         target="_blank">
-        ▶ Tonton Video
-      </a>
-    </div>
-
-  </div>
-
-  <!-- MUSIC -->
-  <div class="music-box">
-    🎵
-    <audio controls autoplay loop>
-      <source src="1f813fc63cd925e339dc1af3d1218f3e.mp4" type="video/mp4">
-    </audio>
-  </div>
-
-  <!-- FOTO -->
-  <div class="photos">
-    <img src="IMG_20260324_153902_827.jpg">
-    <img src="IMG_20260425_063332_219.jpg">
-    <img src="IMG_20260428_121429_289.jpg">
-    <img src="webcam-toy-photo22.jpg">
-  </div>
-
-  <!-- GAMBAR TAMBAHAN -->
-  <div style="text-align:center;">
-    <img src="jepreto-regular-1777698363245.png" width="200">
-  </div>
-
-  <!-- PESAN LENGKAP -->
-  <div class="card">
-
-Hai demittt, distaa cuma mau bilang makasih ya udah jadi bagian dari hari-harinya distaa...
-
-HAPPY BIRTHDAY SAYANG 🤍  
-I LOVEE YOUU
-
-  </div>
-
+<!-- GAMBAR -->
+<div class="extra">
+  <img src="jepreto-regular-1777698363245.png">
 </div>
 
 <script>
-function openLetter() {
+function openMsg() {
   document.getElementById("msg").style.display = "block";
 }
 
-function goPage2() {
-  document.getElementById("page1").style.display = "none";
-  document.getElementById("page2").style.display = "block";
+/* kaset spin */
+const music = document.getElementById("music");
+const cassette = document.getElementById("cassette");
+
+music.addEventListener("play", () => {
+  cassette.classList.add("spin");
+});
+
+music.addEventListener("pause", () => {
+  cassette.classList.remove("spin");
+});
+
+/* 🎂 ROTI JATUH ANIMASI */
+function createRoti() {
+  const roti = document.createElement("div");
+  roti.classList.add("roti");
+
+  roti.innerHTML = "🎂";
+
+  roti.style.left = Math.random() * 100 + "vw";
+  roti.style.animationDuration = (Math.random() * 3 + 2) + "s";
+  roti.style.fontSize = (Math.random() * 10 + 15) + "px";
+
+  document.getElementById("roti-container").appendChild(roti);
+
+  setTimeout(() => {
+    roti.remove();
+  }, 5000);
 }
+
+setInterval(createRoti, 300);
 </script>
 
 </body>
