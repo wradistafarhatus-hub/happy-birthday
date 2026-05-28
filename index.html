@@ -10,7 +10,7 @@
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family:Arial,sans-serif;
+  font-family:Arial, sans-serif;
 }
 
 body{
@@ -23,7 +23,7 @@ body{
   color:white;
 }
 
-/* BACKGROUND STAR */
+/* STAR BACKGROUND */
 .star{
   position:absolute;
   width:3px;
@@ -32,7 +32,10 @@ body{
   border-radius:50%;
   animation:blink 2s infinite;
 }
-@keyframes blink{0%,100%{opacity:0.2;}50%{opacity:1;}}
+@keyframes blink{
+  0%,100%{opacity:0.2;}
+  50%{opacity:1;}
+}
 
 /* CARD */
 .card{
@@ -46,12 +49,6 @@ body{
   box-shadow:0 0 25px rgba(0,0,0,0.3);
   position:relative;
   z-index:2;
-  animation:fade 1s ease;
-}
-
-@keyframes fade{
-  from{opacity:0; transform:scale(0.9);}
-  to{opacity:1; transform:scale(1);}
 }
 
 /* ENVELOPE */
@@ -65,12 +62,27 @@ body{
   50%{transform:translateY(-10px);}
 }
 
-.hint{font-size:14px;opacity:0.7;margin-top:10px;}
+.hint{
+  font-size:14px;
+  opacity:0.7;
+  margin-top:10px;
+}
 
-/* PAGE CONTENT */
-.content{display:none;}
+/* CONTENT */
+.content{
+  display:none;
+  animation:fade 1s ease;
+}
 
-h1{font-size:20px;margin-bottom:10px;}
+@keyframes fade{
+  from{opacity:0; transform:scale(0.9);}
+  to{opacity:1; transform:scale(1);}
+}
+
+h2{
+  font-size:20px;
+  margin-bottom:10px;
+}
 
 p{
   font-size:14px;
@@ -80,41 +92,27 @@ p{
 /* POLAROID */
 .polaroid{
   background:white;
-  padding:10px 10px 25px;
+  padding:10px;
   border-radius:10px;
   margin-top:15px;
-  transform:rotate(-2deg);
 }
+
 .polaroid img{
   width:100%;
   height:200px;
   object-fit:cover;
   border-radius:8px;
 }
-.caption{
-  color:black;
-  font-size:12px;
-  margin-top:5px;
-}
 
 /* BUTTON */
 button{
-  margin-top:10px;
-  padding:8px 12px;
+  margin-top:12px;
+  padding:10px;
   border:none;
   border-radius:10px;
   background:#1db954;
   color:white;
   cursor:pointer;
-}
-
-/* MUSIC BOX */
-.musicBox{
-  margin-top:10px;
-  background:#111;
-  padding:10px;
-  border-radius:10px;
-  font-size:13px;
 }
 
 /* CONFETTI */
@@ -125,13 +123,13 @@ button{
   top:-10px;
   animation:fall linear forwards;
 }
+
 @keyframes fall{
   to{
     transform:translateY(110vh);
     opacity:0;
   }
 }
-
 </style>
 </head>
 
@@ -142,7 +140,7 @@ button{
 <div class="card">
 
   <!-- ENVELOPE -->
-  <div id="envelope" class="envelope" onclick="openCard()">
+  <div id="envelope" class="envelope" onclick="openLetter()">
     ✉️
     <div class="hint">klik untuk membuka</div>
   </div>
@@ -150,32 +148,50 @@ button{
   <!-- CONTENT -->
   <div id="content" class="content">
 
-    <h1>Selamat Ulang Tahun 🤍</h1>
+    <h2>Selamat Ulang Tahun 🤍</h2>
 
     <p>
-      Semoga kamu selalu dikelilingi hal baik,  
-      selalu diberi ketenangan, dan semua yang kamu harapkan pelan-pelan tercapai.<br><br>
+Hai demitt,<br><br>
 
-      Aku nggak minta banyak,  
-      cuma pengen kamu bahagia terus.
+distaa cuma mau bilang makasih ya udah jadi bagian dari hari-harinya distaa.  
+distaa mungkin nggak selalu bisa nunjukin semuanya secara langsung,  
+tapi demitt itu berarti banget buat distaa.<br><br>
+
+Dari cara demitt peduli, cara demitt selalu ada,  
+sampai hal-hal kecil yang kadang demitt sendiri nggak sadar,  
+semuanya bikin distaa ngerasa nyaman banget sama demitt.<br><br>
+
+distaa harap demitt selalu sehat, selalu dimudahkan semua urusannya,  
+dan nggak terlalu capek sama dunia yang kadang suka bikin pusing.  
+Kalau lagi capek, istirahat ya, nggak harus selalu kuat terus.<br><br>
+
+distaa bakal selalu dukung demitt,  
+meskipun nggak selalu keliatan, tapi distaa beneran ada buat demitt.<br><br>
+
+distaa seneng banget bisa kenal sama demitt  
+dan punya demitt di hidup distaa sekarang.<br><br>
+
+Semoga semua yang demitt perjuangin berjalan lancar  
+dan hasilnya sesuai yang demitt harapin.<br><br>
+
+Jangan lupa bahagia ya, jangan terlalu keras sama diri sendiri.<br><br>
+
+Kalau dunia lagi nggak enak, inget aja ada distaa yang selalu doain demitt dari sini.<br><br>
+
+distaa nggak janji sempurna,  
+tapi distaa janji bakal selalu berusaha ada buat demitt.<br><br>
+
+<b>HAPPY BIRTHDAY SAYANG 🤍</b><br>
+<b>I LOVE YOU 🤍</b>
     </p>
 
-    <p style="margin-top:10px;font-weight:bold;">
-      i love you sayangg 🤍
-    </p>
-
-    <!-- POLAROID -->
+    <!-- POLAROID FOTO -->
     <div class="polaroid">
-      <img id="img" src="">
-      <div class="caption">memories ✨</div>
+      <img id="img">
     </div>
 
     <!-- MUSIC -->
-    <div class="musicBox">
-      🎵 Music Player
-      <br>
-      <button onclick="toggleMusic()">Play / Pause</button>
-    </div>
+    <button onclick="toggleMusic()">🎵 Play / Pause Music</button>
 
     <audio id="music" loop>
       <source src="musik.mp3" type="audio/mpeg">
@@ -187,20 +203,21 @@ button{
 
 <script>
 
-/* OPEN */
-function openCard(){
+/* OPEN LETTER */
+function openLetter(){
   document.getElementById("envelope").style.display="none";
   document.getElementById("content").style.display="block";
   startConfetti();
 }
 
-/* MUSIC */
+/* MUSIC FIX */
 function toggleMusic(){
-  let m = document.getElementById("music");
-  if(m.paused){
-    m.play();
-  } else {
-    m.pause();
+  let music = document.getElementById("music");
+
+  if(music.paused){
+    music.play().catch(()=>{});
+  }else{
+    music.pause();
   }
 }
 
@@ -214,14 +231,14 @@ let images = [
 
 let i=0;
 setInterval(()=>{
-  if(document.getElementById("content").style.display=="block"){
+  if(document.getElementById("content").style.display==="block"){
     document.getElementById("img").src = images[i];
     i = (i+1)%images.length;
   }
 },2500);
 
 /* STARS */
-for(let i=0;i<50;i++){
+for(let i=0;i<60;i++){
   let s=document.createElement("div");
   s.className="star";
   s.style.left=Math.random()*100+"%";
@@ -231,7 +248,7 @@ for(let i=0;i<50;i++){
 
 /* CONFETTI */
 function startConfetti(){
-  for(let i=0;i<40;i++){
+  for(let i=0;i<50;i++){
     let c=document.createElement("div");
     c.className="confetti";
     c.style.left=Math.random()*100+"%";
