@@ -10,46 +10,53 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family: Arial, sans-serif;
+    font-family:Arial, sans-serif;
 }
 
 body{
     height:100vh;
-    background: linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
+    background:linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
     display:flex;
     justify-content:center;
     align-items:center;
     overflow:hidden;
+    color:white;
 }
 
 .card{
-    background: rgba(255,255,255,0.08);
-    padding:40px;
-    border-radius:25px;
-    backdrop-filter: blur(10px);
-    text-align:center;
     width:90%;
-    max-width:500px;
-    color:white;
-    box-shadow:0 0 25px rgba(0,0,0,0.3);
-    animation: fade 1.5s ease;
+    max-width:400px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(10px);
+    padding:30px;
+    border-radius:25px;
+    text-align:center;
+    animation:fade 2s ease;
+    box-shadow:0 0 30px rgba(0,0,0,0.3);
+}
+
+img{
+    width:180px;
+    height:180px;
+    border-radius:20px;
+    object-fit:cover;
+    margin-bottom:20px;
+    border:3px solid white;
 }
 
 h1{
-    font-size:40px;
-    margin-bottom:20px;
+    margin-bottom:15px;
 }
 
 p{
-    font-size:18px;
     line-height:1.7;
+    font-size:17px;
 }
 
 .heart{
     font-size:35px;
-    animation: beat 1s infinite;
-    display:inline-block;
     margin-top:20px;
+    animation:beat 1s infinite;
 }
 
 @keyframes beat{
@@ -61,7 +68,7 @@ p{
 @keyframes fade{
     from{
         opacity:0;
-        transform:translateY(20px);
+        transform:translateY(30px);
     }
     to{
         opacity:1;
@@ -74,20 +81,28 @@ p{
 <body>
 
 <div class="card">
-    <h1>Happy Birthday 🎉</h1>
 
-    <p>
-        Selamat ulang tahun sayangkuu 🤍<br><br>
+<img src="foto.jpg">
 
-        Semoga di umur yang sekarang kamu selalu diberi kesehatan,
-        kebahagiaan, dan semua hal baik yang kamu inginkan bisa tercapai satu per satu.<br><br>
+<h1>Happy Birthday Sayang 💙</h1>
 
-        Terima kasih karena sudah hadir dan jadi orang yang selalu bikin hari-hariku lebih indah.  
-        Jangan capek jadi orang baik yaa, aku bangga banget sama kamu 💙
-    </p>
+<p>
+Selamat ulang tahun cintakuuuu 🤍<br><br>
 
-    <div class="heart">💙</div>
+Semoga semua hal baik selalu datang ke hidup kamu.
+Semoga kamu selalu sehat, bahagia, dan semua impian kamu tercapai satu per satu.<br><br>
+
+Terima kasih sudah hadir dan jadi bagian terbaik di hidup aku.  
+Aku bersyukur banget punya kamu 💙
+</p>
+
+<div class="heart">💙</div>
+
 </div>
+
+<audio autoplay loop>
+<source src="lagu.mp3" type="audio/mp3">
+</audio>
 
 </body>
 </html>
