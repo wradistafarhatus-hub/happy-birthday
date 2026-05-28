@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    height:100vh;
+    background: linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+}
+
+.card{
+    background: rgba(255,255,255,0.08);
+    padding:40px;
+    border-radius:25px;
+    backdrop-filter: blur(10px);
+    text-align:center;
+    width:90%;
+    max-width:500px;
+    color:white;
+    box-shadow:0 0 25px rgba(0,0,0,0.3);
+    animation: fade 1.5s ease;
+}
+
+h1{
+    font-size:40px;
+    margin-bottom:20px;
+}
+
+p{
+    font-size:18px;
+    line-height:1.7;
+}
+
+.heart{
+    font-size:35px;
+    animation: beat 1s infinite;
+    display:inline-block;
+    margin-top:20px;
+}
+
+@keyframes beat{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.2);}
+    100%{transform:scale(1);}
+}
+
+@keyframes fade{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h1>Happy Birthday 🎉</h1>
+
+    <p>
+        Selamat ulang tahun sayangkuu 🤍<br><br>
+
+        Semoga di umur yang sekarang kamu selalu diberi kesehatan,
+        kebahagiaan, dan semua hal baik yang kamu inginkan bisa tercapai satu per satu.<br><br>
+
+        Terima kasih karena sudah hadir dan jadi orang yang selalu bikin hari-hariku lebih indah.  
+        Jangan capek jadi orang baik yaa, aku bangga banget sama kamu 💙
+    </p>
+
+    <div class="heart">💙</div>
+</div>
+
+</body>
+</html>
