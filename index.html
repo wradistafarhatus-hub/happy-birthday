@@ -3,260 +3,157 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Birthday</title>
+<title>Happy Birthday</title>
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Arial, sans-serif;
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  font-family: Arial, sans-serif;
+  background: #0d6efd;
+  color: white;
 }
 
-body{
-  height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  background:linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
-  overflow:hidden;
-  color:white;
+.container {
+  text-align: center;
+  padding: 50px 20px;
 }
 
-/* STAR BACKGROUND */
-.star{
-  position:absolute;
-  width:3px;
-  height:3px;
-  background:white;
-  border-radius:50%;
-  animation:blink 2s infinite;
-}
-@keyframes blink{
-  0%,100%{opacity:0.2;}
-  50%{opacity:1;}
+h1 {
+  font-size: 40px;
+  margin-bottom: 10px;
 }
 
-/* CARD */
-.card{
-  width:90%;
-  max-width:420px;
-  padding:20px;
-  border-radius:20px;
-  background:rgba(255,255,255,0.08);
-  backdrop-filter:blur(10px);
-  text-align:center;
-  box-shadow:0 0 25px rgba(0,0,0,0.3);
-  position:relative;
-  z-index:2;
+p {
+  line-height: 1.6;
 }
 
-/* ENVELOPE */
-.envelope{
-  font-size:80px;
-  cursor:pointer;
-  animation:float 2s infinite;
-}
-@keyframes float{
-  0%,100%{transform:translateY(0);}
-  50%{transform:translateY(-10px);}
-}
-
-.hint{
-  font-size:14px;
-  opacity:0.7;
-  margin-top:10px;
+/* FOTO UTAMA */
+.main-photo {
+  width: 220px;
+  margin: 20px auto;
+  background: white;
+  padding: 10px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  transform: rotate(-2deg);
 }
 
-/* CONTENT */
-.content{
-  display:none;
-  animation:fade 1s ease;
+.main-photo img {
+  width: 100%;
 }
 
-@keyframes fade{
-  from{opacity:0; transform:scale(0.9);}
-  to{opacity:1; transform:scale(1);}
+/* GALERI */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
 }
 
-h2{
-  font-size:20px;
-  margin-bottom:10px;
+.gallery img {
+  width: 140px;
+  border-radius: 10px;
 }
 
-p{
-  font-size:14px;
-  line-height:1.6;
+/* AMPLop */
+.envelope {
+  width: 120px;
+  height: 80px;
+  background: white;
+  margin: 30px auto;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
-/* POLAROID */
-.polaroid{
-  background:white;
-  padding:10px;
-  border-radius:10px;
-  margin-top:15px;
+/* PESAN */
+#letter {
+  display: none;
+  margin-top: 15px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  background: rgba(255,255,255,0.2);
+  padding: 15px;
+  border-radius: 10px;
 }
-
-.polaroid img{
-  width:100%;
-  height:200px;
-  object-fit:cover;
-  border-radius:8px;
-}
-
-/* BUTTON */
-button{
-  margin-top:12px;
-  padding:10px;
-  border:none;
-  border-radius:10px;
-  background:#1db954;
-  color:white;
-  cursor:pointer;
-}
-
-/* CONFETTI */
-.confetti{
-  position:absolute;
-  width:6px;
-  height:6px;
-  top:-10px;
-  animation:fall linear forwards;
-}
-
-@keyframes fall{
-  to{
-    transform:translateY(110vh);
-    opacity:0;
-  }
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-top: 20px;
 }
 </style>
 </head>
 
 <body>
 
-<div id="stars"></div>
+<div class="container">
 
-<div class="card">
+  <h1>Happy Birthday 🎉</h1>
 
-  <!-- ENVELOPE -->
-  <div id="envelope" class="envelope" onclick="openLetter()">
-    ✉️
-    <div class="hint">klik untuk membuka</div>
+  <!-- KATA KATA ASLI KAMU -->
+  <p>
+    Hai demittt, distaa cuma mau bilang makasih ya udah jadi bagian dari hari-harinya distaa.  
+    distaa nggaaa selalu bisa nunjukin secara langsung, tapi demitt tuh berarti banget buat distaa.  
+    Dari cara demitt peduli, cara demitt selalu ada, sampai hal-hal kecil yang kadang demitt sendiri nggak sadar, itu bikin distaa ngerasa nyaman banget sama demitt.  
+    distaa harap demitt selalu bahagia yaa, jangan capek-capek, dan tetap jadi demitt yang distaa kenal selama ini 🤍
+  </p>
+
+  <!-- FOTO UTAMA -->
+  <div class="main-photo">
+    <img src="IMG_20260324_153902_827.jpg">
   </div>
 
-  <!-- CONTENT -->
-  <div id="content" class="content">
-
-    <h2>Selamat Ulang Tahun 🤍</h2>
-
-    <p>
-Hai demitt,<br><br>
-
-distaa cuma mau bilang makasih ya udah jadi bagian dari hari-harinya distaa.  
-distaa mungkin nggak selalu bisa nunjukin semuanya secara langsung,  
-tapi demitt itu berarti banget buat distaa.<br><br>
-
-Dari cara demitt peduli, cara demitt selalu ada,  
-sampai hal-hal kecil yang kadang demitt sendiri nggak sadar,  
-semuanya bikin distaa ngerasa nyaman banget sama demitt.<br><br>
-
-distaa harap demitt selalu sehat, selalu dimudahkan semua urusannya,  
-dan nggak terlalu capek sama dunia yang kadang suka bikin pusing.  
-Kalau lagi capek, istirahat ya, nggak harus selalu kuat terus.<br><br>
-
-distaa bakal selalu dukung demitt,  
-meskipun nggak selalu keliatan, tapi distaa beneran ada buat demitt.<br><br>
-
-distaa seneng banget bisa kenal sama demitt  
-dan punya demitt di hidup distaa sekarang.<br><br>
-
-Semoga semua yang demitt perjuangin berjalan lancar  
-dan hasilnya sesuai yang demitt harapin.<br><br>
-
-Jangan lupa bahagia ya, jangan terlalu keras sama diri sendiri.<br><br>
-
-Kalau dunia lagi nggak enak, inget aja ada distaa yang selalu doain demitt dari sini.<br><br>
-
-distaa nggak janji sempurna,  
-tapi distaa janji bakal selalu berusaha ada buat demitt.<br><br>
-
-<b>HAPPY BIRTHDAY SAYANG 🤍</b><br>
-<b>I LOVE YOU 🤍</b>
-    </p>
-
-    <!-- POLAROID FOTO -->
-    <div class="polaroid">
-      <img id="img">
-    </div>
-
-    <!-- MUSIC -->
-    <button onclick="toggleMusic()">🎵 Play / Pause Music</button>
-
-    <audio id="music" loop>
-      <source src="musik.mp3" type="audio/mpeg">
-    </audio>
-
+  <!-- GALERI -->
+  <div class="gallery">
+    <img src="IMG_20260425_063332_219.jpg">
+    <img src="IMG_20260428_121429_289.jpg">
+    <img src="webcam-toy-photo22.jpg">
+    <img src="jepreto-regular-1777698363245.png">
   </div>
+
+  <!-- AMPLop -->
+  <div class="envelope" onclick="openLetter()"></div>
+
+  <div id="letter">
+    💌  
+    distaa nggak selalu bisa bilang langsung,  
+    tapi distaa bersyukur banget pernah kenal demitt.  
+  </div>
+
+  <!-- TOMBOL MUSIK -->
+  <button onclick="playMusic()">Putar Musik 🎵</button>
+
+  <!-- MP4 -->
+  <video id="music" width="0" height="0">
+    <source src="1f813fc63cd925e339dc1af3d1218f3e.mp4" type="video/mp4">
+  </video>
 
 </div>
 
 <script>
 
-/* OPEN LETTER */
-function openLetter(){
-  document.getElementById("envelope").style.display="none";
-  document.getElementById("content").style.display="block";
-  startConfetti();
+function openLetter() {
+  document.getElementById("letter").style.display = "block";
 }
 
-/* MUSIC FIX */
-function toggleMusic(){
-  let music = document.getElementById("music");
+function playMusic() {
+  document.getElementById("music").play();
+}
 
-  if(music.paused){
-    music.play().catch(()=>{});
-  }else{
-    music.pause();
+// anti blok autoplay
+document.addEventListener("click", function () {
+  const music = document.getElementById("music");
+  if (music.paused) {
+    music.play().catch(() => {});
   }
-}
-
-/* IMAGE SLIDER */
-let images = [
-  "IMG_20260324_153902_827.jpg",
-  "IMG_20260425_063332_219.jpg",
-  "IMG_20260428_121429_289.jpg",
-  "webcam-toy-photo22.jpg"
-];
-
-let i=0;
-setInterval(()=>{
-  if(document.getElementById("content").style.display==="block"){
-    document.getElementById("img").src = images[i];
-    i = (i+1)%images.length;
-  }
-},2500);
-
-/* STARS */
-for(let i=0;i<60;i++){
-  let s=document.createElement("div");
-  s.className="star";
-  s.style.left=Math.random()*100+"%";
-  s.style.top=Math.random()*100+"%";
-  document.getElementById("stars").appendChild(s);
-}
-
-/* CONFETTI */
-function startConfetti(){
-  for(let i=0;i<50;i++){
-    let c=document.createElement("div");
-    c.className="confetti";
-    c.style.left=Math.random()*100+"%";
-    c.style.background=["#fff","#ff0","#f0f","#0ff"][Math.floor(Math.random()*4)];
-    c.style.animationDuration=(2+Math.random()*3)+"s";
-    document.body.appendChild(c);
-  }
-}
+}, { once: true });
 
 </script>
 
