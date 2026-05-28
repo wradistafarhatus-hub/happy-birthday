@@ -77,12 +77,33 @@ p{
 }
 </style>
 </head>
+    <script>
+let images = [
+"foto1.jpg",
+"foto2.jpg",
+"foto3.jpg"
+];
+
+let index = 0;
+
+setInterval(function(){
+
+index++;
+
+if(index >= images.length){
+index = 0;
+}
+
+document.getElementById("slide").src = images[index];
+
+},2000);
+    </script>
 
 <body>
 
 <div class="card">
 
-<img src="foto.jpg">
+<img id="slide" src="foto1.jpg">
 
 <h1>Happy Birthday Sayang 💙</h1>
 
