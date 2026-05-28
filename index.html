@@ -156,11 +156,17 @@ transform:translateY(0);
 
 </div>
 
-<video autoplay loop hidden>
+<video id="musik" loop hidden>
 <source src="1f813fc63cd925e339dc1af3d1218f3e.mp4" type="video/mp4">
 </video>
 
 <script>
+
+document.body.addEventListener("click", function(){
+
+document.getElementById("musik").play();
+
+});
 
 let message = "Selamat ulang tahun cintakuuu 🤍 Semoga semua hal baik selalu datang ke hidup kamu. Semoga kamu selalu sehat, bahagia, dimudahkan semua urusannya, dan semua impian kamu tercapai satu per satu. Terima kasih sudah hadir dan jadi bagian terbaik di hidup aku 💙";
 
