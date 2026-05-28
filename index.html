@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday</title>
+<title>Happy Birthday 💙</title>
 
 <style>
 
@@ -22,6 +22,7 @@ align-items:center;
 background:linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
 overflow:hidden;
 color:white;
+transition:1s;
 }
 
 .stars{
@@ -71,7 +72,7 @@ border:3px solid white;
 
 h1{
 margin-bottom:15px;
-font-size:32px;
+font-size:30px;
 }
 
 p{
@@ -88,8 +89,9 @@ border-radius:20px;
 background:white;
 color:#1e3a8a;
 font-weight:bold;
-cursor:pointer;
 font-size:16px;
+cursor:pointer;
+transition:0.3s;
 }
 
 button:hover{
@@ -146,7 +148,7 @@ transform:translateY(0);
 
 <p id="text"></p>
 
-<button onclick="showConfetti()">Klik Aku 🎉</button>
+<button onclick="showLove()">Klik Aku 🎉</button>
 
 <div class="cake">🎂</div>
 
@@ -154,9 +156,9 @@ transform:translateY(0);
 
 </div>
 
-<audio autoplay loop>
-<source src="1f813fc63cd925e339dc1af3d1218f3e.mp4" type="audio/mp4">
-</audio>
+<video autoplay loop hidden>
+<source src="1f813fc63cd925e339dc1af3d1218f3e.mp4" type="video/mp4">
+</video>
 
 <script>
 
@@ -217,14 +219,17 @@ document.querySelector(".stars").appendChild(star);
 
 }
 
-function showConfetti(){
+function showLove(){
 
-alert("Happy Birthday Sayanggg 🎉💙");
+document.body.style.background =
+"linear-gradient(135deg,#2563eb,#7c3aed,#ec4899)";
+
+document.querySelector(".card").innerHTML +=
+"<h2 style='margin-top:20px;'>I LOVE YOU 💙🎉</h2>";
 
 }
 
 </script>
 
 </body>
-
 </html>
