@@ -1,161 +1,74 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday</title>
+  <meta charset="UTF-8">
+  <title>Happy Birthday</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #1e90ff;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
 
-<style>
-html, body {
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  overflow-x: hidden;
-  overflow-y: auto;
-  font-family: Arial, sans-serif;
-  background: #0d6efd;
-  color: white;
-}
+    .envelope {
+      width: 200px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
 
-.container {
-  text-align: center;
-  padding: 50px 20px;
-}
+    .envelope:hover {
+      transform: scale(1.05);
+    }
 
-h1 {
-  font-size: 40px;
-  margin-bottom: 10px;
-}
+    .message-box {
+      display: none;
+      margin-top: 20px;
+      background: white;
+      padding: 20px;
+      border-radius: 15px;
+      max-width: 500px;
+      text-align: left;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
 
-p {
-  line-height: 1.6;
-}
-
-/* FOTO UTAMA */
-.main-photo {
-  width: 220px;
-  margin: 20px auto;
-  background: white;
-  padding: 10px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-  transform: rotate(-2deg);
-}
-
-.main-photo img {
-  width: 100%;
-}
-
-/* GALERI */
-.gallery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 20px;
-}
-
-.gallery img {
-  width: 140px;
-  border-radius: 10px;
-}
-
-/* AMPLop */
-.envelope {
-  width: 120px;
-  height: 80px;
-  background: white;
-  margin: 30px auto;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-/* PESAN */
-#letter {
-  display: none;
-  margin-top: 15px;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: left;
-  background: rgba(255,255,255,0.2);
-  padding: 15px;
-  border-radius: 10px;
-}
-button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  margin-top: 20px;
-}
-</style>
+    .title {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+  </style>
 </head>
-
 <body>
 
-<div class="container">
+  <!-- Gambar amplop -->
+  <img src="amplop.png" class="envelope" onclick="openLetter()" alt="amplop">
 
-  <h1>Happy Birthday 🎉</h1>
+  <!-- Isi pesan -->
+  <div class="message-box" id="letter">
+    <div class="title">💌 Untuk kamu</div>
 
-  <!-- KATA KATA ASLI KAMU -->
-  <p>
-    Hai demittt, distaa cuma mau bilang makasih ya udah jadi bagian dari hari-harinya distaa.  
-    distaa nggaaa selalu bisa nunjukin secara langsung, tapi demitt tuh berarti banget buat distaa.  
-    Dari cara demitt peduli, cara demitt selalu ada, sampai hal-hal kecil yang kadang demitt sendiri nggak sadar, itu bikin distaa ngerasa nyaman banget sama demitt.  
-    distaa harap demitt selalu bahagia yaa, jangan capek-capek, dan tetap jadi demitt yang distaa kenal selama ini 🤍
-  </p>
+    Hai demittt, distaa cuma mau bilang makasih ya udah jadi bagian dari hari-harinya distaa. distaa nggaaa selalu bisa nunjukin secara langsung, tapi demitt tuh berarti banget buat distaa. Dari cara demitt peduli, cara demitt selalu ada, sampai hal-hal kecil yang kadang demitt sendiri nggak sadar, itu bikin distaa ngerasa nyaman banget sama demitt.<br><br>
 
-  <!-- FOTO UTAMA -->
-  <div class="main-photo">
-    <img src="IMG_20260324_153902_827.jpg">
+    distaa harap demitt selalu sehat, selalu dimudahkan semua urusannya, dan nggaaa terlalu capek sama dunia yang kadang emang suka bikin pusing yakann demitt. Kalau lagi capek, jangan dipaksa kuat terus ya, istirahat juga nggak apa-apa. distaa di sini bakal selalu dukung demitt, meskipun nggaaa selalu keliatan, tapi distaa beneran ada buat demitt.<br><br>
+
+    distaa juga pengen demitt tau, dista seneng banget bisa kenal sama demit, bisa punya demitt di hidup dista sekarang. Semoga apa pun yang demitt perjuangin bisa berjalan lancar dan hasilnya sesuai sama yang demitt harapin. Jangan lupa bahagia ya, jangan terlalu keras sama diri sendiri.<br><br>
+
+    Dan kalau suatu saat demitt ngerasa dunia lagi nggaaa enak, inget aja kalau ada distaa yang selalu doain demit dari sini. Distaa nggak janji bisa sempurna, tapi distaa janji bakal selalu berusaha ada buat demitt.<br><br>
+
+    <b>HAPPY BIRTHDAY SAYANG, demitt udahh tuaa hehehee</b><br>
+    <b>I LOVEE YOUU 🤍</b>
   </div>
 
-  <!-- GALERI -->
-  <div class="gallery">
-    <img src="IMG_20260425_063332_219.jpg">
-    <img src="IMG_20260428_121429_289.jpg">
-    <img src="webcam-toy-photo22.jpg">
-    <img src="jepreto-regular-1777698363245.png">
-  </div>
-
-  <!-- AMPLop -->
-  <div class="envelope" onclick="openLetter()"></div>
-
-  <div id="letter">
-    💌  
-    distaa nggak selalu bisa bilang langsung,  
-    tapi distaa bersyukur banget pernah kenal demitt.  
-  </div>
-
-  <!-- TOMBOL MUSIK -->
-  <button onclick="playMusic()">Putar Musik 🎵</button>
-
-  <!-- MP4 -->
-  <video id="music" width="0" height="0">
-    <source src="1f813fc63cd925e339dc1af3d1218f3e.mp4" type="video/mp4">
-  </video>
-
-</div>
-
-<script>
-
-function openLetter() {
-  document.getElementById("letter").style.display = "block";
-}
-
-function playMusic() {
-  document.getElementById("music").play();
-}
-
-// anti blok autoplay
-document.addEventListener("click", function () {
-  const music = document.getElementById("music");
-  if (music.paused) {
-    music.play().catch(() => {});
-  }
-}, { once: true });
-
-</script>
+  <script>
+    function openLetter() {
+      document.getElementById("letter").style.display = "block";
+    }
+  </script>
 
 </body>
 </html>
